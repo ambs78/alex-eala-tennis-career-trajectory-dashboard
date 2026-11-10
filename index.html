@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="text-xs sm:text-sm font-bold text-emerald-950 bg-emerald-300/90 px-3 py-1.5 rounded-full border border-emerald-600/40 shadow-sm">
-                    Updated as of Nov 10, 2026
+                    Updated through 2026 Season
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="lg:col-span-4 flex flex-col space-y-4">
                     <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4">
-                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends (Hover to Highlight)</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends (Hover to Highlight, Tick to Lock)</p>
                         <div id="custom-legend" class="grid grid-cols-1 gap-1.5 text-xs"></div>
                     </div>
                     <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-4">
@@ -167,7 +167,10 @@
         let globalData = [];
         let rankingChart = null;
         let currentFilter = 'all';
-        let activeLabel = null;   // series currently hovered (chart OR legend); null = none
+        let hoverLabel = null;    // series under the mouse (chart OR legend)
+        let pinnedLabel = null;   // series locked by the legend tick circle (only one at a time)
+        const activeLabel = () => pinnedLabel !== null ? pinnedLabel : hoverLabel;   // a locked series wins over hover
+        const CHECK = '<svg viewBox="0 0 16 16" class="w-2.5 h-2.5" fill="none" stroke="#020617" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
 
         // ---------- Data ----------
         Papa.parse("data/rankings.csv", {
@@ -199,8 +202,9 @@
         // Alex is never dimmed. When a series is active, every other series is dimmed.
         function seriesState(ds) {
             if (ds.label === ALEX) return 'alex';
-            if (activeLabel === null) return 'normal';
-            return ds.label === activeLabel ? 'active' : 'dim';
+            const a = activeLabel();
+            if (a === null) return 'normal';
+            return ds.label === a ? 'active' : 'dim';
         }
         // Scriptable options: line AND markers read the same state, so they can never get out of sync.
         const pick = (map) => (ctx) => map[seriesState(ctx.dataset)];
@@ -238,10 +242,25 @@
         }
 
         function setActive(label) {
-            if (label === activeLabel) return;
-            activeLabel = label;
+            if (label === hoverLabel) return;
+            hoverLabel = label;
+            refreshHighlight();
+        }
+
+        function refreshHighlight() {
             if (rankingChart) rankingChart.update('none');
             refreshLegendStyles();
+        }
+
+        // Tick circle: lock one series as highlighted (others dimmed); tick again to release
+        function togglePin(ds) {
+            if (pinnedLabel === ds.label) {
+                pinnedLabel = null;
+            } else {
+                pinnedLabel = ds.label;
+                if (ds.hidden) { ds.hidden = false; updateXRange(); rankingChart.update(); }   // a locked series must be visible
+            }
+            refreshHighlight();
         }
 
         // ---------- Chart ----------
@@ -278,7 +297,7 @@
                             // Same-year points of every visible series are candidates; the filter keeps only
                             // the hovered series + Alex, so BOTH rows are real tooltip rows with a colour square.
                             mode: 'index', intersect: true,
-                            filter: (item) => item.dataset.label === ALEX || item.dataset.label === activeLabel,
+                            filter: (item) => item.dataset.label === ALEX || item.dataset.label === hoverLabel,
                             itemSort: (a, b) => (a.dataset.label === ALEX) - (b.dataset.label === ALEX),
                             callbacks: {
                                 label: (c) => {
@@ -307,15 +326,23 @@
         function legendItemClass(ds) {
             const base = 'flex items-center justify-between cursor-pointer px-2 py-1.5 rounded transition-colors ';
             if (ds.hidden) return base + 'opacity-40 bg-slate-900';
-            if (activeLabel === null) return base + 'hover:bg-slate-900';
-            if (ds.label === activeLabel) return base + 'bg-slate-800';
+            const a = activeLabel();
+            if (a === null) return base + 'hover:bg-slate-900';
+            if (ds.label === a) return base + 'bg-slate-800';
             if (ds.label === ALEX) return base;
             return base + 'opacity-40';
         }
 
         function refreshLegendStyles() {
             document.querySelectorAll('#custom-legend [data-index]').forEach(item => {
-                item.className = legendItemClass(rankingChart.data.datasets[+item.dataset.index]);
+                const ds = rankingChart.data.datasets[+item.dataset.index];
+                item.className = legendItemClass(ds);
+                const tick = item.querySelector('[data-tick]');
+                const on = pinnedLabel === ds.label;
+                tick.style.backgroundColor = on ? ds.baseColor : 'transparent';
+                tick.style.borderColor = on ? ds.baseColor : '';
+                tick.innerHTML = on ? CHECK : '';
+                tick.setAttribute('aria-checked', on);
             });
         }
 
@@ -327,17 +354,21 @@
                 item.dataset.index = index;
                 item.innerHTML = `
                     <div class="flex items-center space-x-2 truncate">
+                        <span data-tick role="checkbox" aria-checked="false" aria-label="Lock highlight on ${ds.label}" title="Lock highlight"
+                              class="w-4 h-4 rounded-full border border-slate-500 hover:border-slate-300 flex-shrink-0 flex items-center justify-center transition-colors"></span>
                         <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color:${ds.baseColor}"></span>
                         <span class="font-medium text-slate-300 truncate">${ds.label}</span>
                     </div>`;
                 // Legend -> chart (hidden series don't trigger highlighting)
                 item.onmouseenter = () => { if (!ds.hidden) setActive(ds.label); };
                 item.onmouseleave = () => setActive(null);
+                item.querySelector('[data-tick]').onclick = (e) => { e.stopPropagation(); togglePin(ds); };
                 // Click toggles visibility; Alex can't be hidden
                 item.onclick = () => {
                     if (ds.label === ALEX) return;
                     ds.hidden = !ds.hidden;
-                    if (ds.hidden && activeLabel === ds.label) activeLabel = null;
+                    if (ds.hidden && pinnedLabel === ds.label) pinnedLabel = null;
+                    if (ds.hidden && hoverLabel === ds.label) hoverLabel = null;
                     updateXRange();
                     rankingChart.update();
                     refreshLegendStyles();
@@ -363,9 +394,12 @@
         function setFilter(mode) {
             if (!rankingChart) return;
             currentFilter = mode;
-            activeLabel = null;
+            hoverLabel = null;
             setFilterButtons(mode);
             rankingChart.data.datasets = makeDatasets(globalData, mode);
+            // keep the lock only if that player is still visible in the new view
+            const locked = rankingChart.data.datasets.find(d => d.label === pinnedLabel);
+            if (!locked || locked.hidden) pinnedLabel = null;
             updateXRange();
             rankingChart.update();
             updateInsightsText(mode);
