@@ -297,7 +297,8 @@
                             // Same-year points of every visible series are candidates; the filter keeps only
                             // the hovered series + Alex, so BOTH rows are real tooltip rows with a colour square.
                             mode: 'index', intersect: true,
-                            filter: (item) => item.dataset.label === ALEX || item.dataset.label === hoverLabel,
+                            // Locked player: only Alex + that player. Otherwise: Alex + the series under the cursor.
+                            filter: (item) => item.dataset.label === ALEX || item.dataset.label === activeLabel(),
                             itemSort: (a, b) => (a.dataset.label === ALEX) - (b.dataset.label === ALEX),
                             callbacks: {
                                 label: (c) => {
@@ -334,6 +335,8 @@
         }
 
         function refreshLegendStyles() {
+            // Locked: tooltip follows the cursor anywhere along the x-axis. Unlocked: cursor must be on a point.
+            if (rankingChart) rankingChart.options.plugins.tooltip.intersect = (pinnedLabel === null);
             document.querySelectorAll('#custom-legend [data-index]').forEach(item => {
                 const ds = rankingChart.data.datasets[+item.dataset.index];
                 item.className = legendItemClass(ds);
