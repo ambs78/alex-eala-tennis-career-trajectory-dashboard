@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Eala's WTA Rank Progression vs Other Tennis Stars</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- PapaParse for CSV Parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -18,25 +14,25 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar with Full-Width Emerald Green Background Title Pane -->
-    <header class="bg-emerald-500 text-slate-950 sticky top-0 z-50 py-3 shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <h1 class="font-extrabold text-lg sm:text-xl tracking-tight">
-                Alex Eala's WTA Rank Progression vs Other Tennis Stars
-            </h1>
-            <div class="text-xs sm:text-sm font-bold text-emerald-950 bg-emerald-300/90 px-3 py-1.5 rounded-full border border-emerald-600/40 shadow-sm">
-                Updated through 2026 Season
+    <!-- Sticky header: the green bar now sits inside the same max-w-7xl container as the cards -->
+    <header class="sticky top-0 z-50 bg-slate-950 pt-4 pb-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-emerald-500 text-slate-950 rounded-2xl shadow-xl px-5 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <h1 class="font-extrabold text-lg sm:text-xl tracking-tight">
+                    Alex Eala's WTA Rank Progression vs Other Tennis Stars
+                </h1>
+                <div class="text-xs sm:text-sm font-bold text-emerald-950 bg-emerald-300/90 px-3 py-1.5 rounded-full border border-emerald-600/40 shadow-sm">
+                    Updated through 2026 Season
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex-grow w-full space-y-6">
 
-        <!-- Hero Section: Side Image + Top Metric Cards -->
+        <!-- Hero: portrait + 2x2 KPI grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            
-            <!-- Left Side: Alex Eala Image Card -->
+
             <div class="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-2 relative overflow-hidden shadow-xl flex items-center justify-center min-h-[300px]">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 z-10"></div>
                 <img src="assets/eala.png" alt="Alex Eala" class="absolute inset-0 w-full h-full object-contain object-top p-2 rounded-2xl z-0">
@@ -45,37 +41,36 @@
                 </div>
             </div>
 
-            <!-- Right Side: 4 KPI Cards Grid with tighter vertical gap (gap-1.5) -->
-            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-1.5 content-between">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <!-- Two equal rows that fill the portrait's height; uniform gap-4 replaces content-between -->
+            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-2 gap-4">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-center">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Current Ranking</p>
                     <h3 class="text-3xl font-extrabold text-white mt-0.5">No. 15</h3>
                     <p class="text-xs text-slate-400 mt-0.5">Career-high achieved Nov 2026</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-center">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-blue-400 uppercase tracking-wider">WTA Tour Titles</p>
                     <h3 class="text-2xl font-extrabold text-white mt-0.5">1 Single / 2 WTA 125</h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Washington DC (500) & Birmingham (125)</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Washington DC (500) &amp; Birmingham (125)</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-center">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Grand Slam Peak</p>
                     <h3 class="text-3xl font-extrabold text-white mt-0.5">4th Round</h3>
                     <p class="text-xs text-slate-400 mt-0.5">Wimbledon 2026 Breakthrough</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-3.5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-center">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-amber-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Career Prize Money</p>
                     <h3 class="text-3xl font-extrabold text-white mt-0.5">$3.33M+</h3>
                     <p class="text-xs text-slate-400 mt-0.5">Historic milestone for PH Tennis</p>
                 </div>
             </div>
-
         </div>
 
-        <!-- Interactive Chart, Legend & Dynamic Insights Section -->
+        <!-- Chart, legend, insights -->
         <section class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-800">
                 <div>
@@ -83,138 +78,175 @@
                     <p class="text-sm font-medium text-slate-300 mt-0.5">Year-End WTA Ranking Progression (Inverted Scale)</p>
                     <p class="text-xs text-slate-400 mt-0.5">Lower position number indicates a higher, elite ranking.</p>
                 </div>
-                <!-- Reordered & Renamed Filters -->
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="setFilter('all')" id="btn-all" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">Compared with Other Stars</button>
-                    <button onclick="setFilter('prodigies')" id="btn-prodigies" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Alex vs Prodigies</button>
-                    <button onclick="setFilter('filipinas')" id="btn-filipinas" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Alex vs Other Filipinas</button>
+                    <button onclick="setFilter('all')" id="btn-all" class="px-4 py-2 text-xs font-bold rounded-xl transition-all">Compared with Other Stars</button>
+                    <button onclick="setFilter('prodigies')" id="btn-prodigies" class="px-4 py-2 text-xs font-bold rounded-xl transition-all">Alex vs Prodigies</button>
+                    <button onclick="setFilter('filipinas')" id="btn-filipinas" class="px-4 py-2 text-xs font-bold rounded-xl transition-all">Alex vs Other Filipinas</button>
                 </div>
             </div>
 
-            <!-- Grid containing Chart on left, Custom Legend & Dynamic Insights on right -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                <!-- Chart Area -->
                 <div class="lg:col-span-8 relative w-full h-[420px]">
                     <canvas id="rankingChart"></canvas>
                 </div>
-                <!-- Right-Side Panel: Custom Legend & Dynamic Insights -->
                 <div class="lg:col-span-4 flex flex-col space-y-4">
-                    <!-- Legend Box with Hover Effects -->
                     <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4">
                         <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends (Hover to Highlight)</p>
-                        <div id="custom-legend" class="grid grid-cols-1 gap-1.5 text-xs">
-                            <!-- Populated dynamically via JS -->
-                        </div>
+                        <div id="custom-legend" class="grid grid-cols-1 gap-1.5 text-xs"></div>
                     </div>
-                    <!-- Dynamic View-Specific Insights Box -->
                     <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-4">
                         <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center gap-1.5">
                             <span>💡</span> Progression Insights
                         </p>
-                        <p id="dynamic-insight" class="text-xs text-slate-300 leading-relaxed">
-                            Loading insights...
-                        </p>
+                        <p id="dynamic-insight" class="text-xs text-slate-300 leading-relaxed">Loading insights...</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Comprehensive Data Table Section -->
+        <!-- Data table -->
         <section class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
             <div class="mb-6">
                 <h2 class="text-lg font-bold text-white">Complete Comparative Dataset (Career Years 1 to 20)</h2>
                 <p class="text-sm text-slate-400">Loaded dynamically from <code class="text-emerald-400">data/rankings.csv</code>.</p>
             </div>
-            
             <div class="overflow-x-auto max-h-[500px] rounded-xl border border-slate-800">
                 <table class="w-full text-left border-collapse text-xs sm:text-sm">
                     <thead class="bg-slate-950 sticky top-0 z-10 text-slate-300 border-b border-slate-800">
-                        <tr>
-                            <th class="p-3 font-semibold text-center bg-slate-950 sticky left-0 z-20">Career Year</th>
-                            <th class="p-3 font-bold text-emerald-400 bg-slate-950">Alex Eala</th>
-                            <th class="p-3 font-semibold text-slate-300">Dyan Castillejo</th>
-                            <th class="p-3 font-semibold text-slate-300">Lizette Cabrera</th>
-                            <th class="p-3 font-semibold text-slate-300">Maria Sharapova</th>
-                            <th class="p-3 font-semibold text-slate-300">Serena Williams</th>
-                            <th class="p-3 font-semibold text-slate-300">Venus Williams</th>
-                            <th class="p-3 font-semibold text-slate-300">Coco Gauff</th>
-                            <th class="p-3 font-semibold text-slate-300">Iga Świątek</th>
-                            <th class="p-3 font-semibold text-slate-300">Naomi Osaka</th>
-                            <th class="p-3 font-semibold text-slate-300">Victoria Azarenka</th>
-                        </tr>
+                        <tr id="table-head"></tr>
                     </thead>
-                    <tbody id="table-body" class="divide-y divide-slate-800/60 text-slate-300">
-                        <!-- Populated Dynamically via CSV -->
-                    </tbody>
+                    <tbody id="table-body" class="divide-y divide-slate-800/60 text-slate-300"></tbody>
                 </table>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-800/80 bg-slate-900/40 py-6 mt-12 text-center text-xs text-slate-500">
-        <p>Built for GitHub Pages Hosting • Data Source: CSV & Historical Archives (2026)</p>
+        <p>Built for GitHub Pages Hosting • Data Source: CSV &amp; Historical Archives (2026)</p>
     </footer>
 
-    <!-- Script to Fetch CSV and Render Dashboard with Interactive Hover Effects -->
     <script>
-        let globalData = [];
-        let rankingChart = null;
-        let currentFilter = 'all';
-
+        // ---------- Config: one source of truth for table, chart and legend ----------
+        const ALEX = 'Alex Eala';
+        const PLAYERS = [
+            { key: 'alex_eala',         label: ALEX,                color: '#10b981' },
+            { key: 'dyan_castillejo',   label: 'Dyan Castillejo',   color: '#38bdf8' },
+            { key: 'lizette_cabrera',   label: 'Lizette Cabrera',   color: '#64748b' },
+            { key: 'maria_sharapova',   label: 'Maria Sharapova',   color: '#a855f7' },
+            { key: 'serena_williams',   label: 'Serena Williams',   color: '#ec4899' },
+            { key: 'venus_williams',    label: 'Venus Williams',    color: '#06b6d4' },
+            { key: 'coco_gauff',        label: 'Coco Gauff',        color: '#f43f5e' },
+            { key: 'iga_swiatek',       label: 'Iga Świątek',       color: '#eab308' },
+            { key: 'naomi_osaka',       label: 'Naomi Osaka',       color: '#f97316' },
+            { key: 'victoria_azarenka', label: 'Victoria Azarenka', color: '#84cc16' }
+        ];
+        const FILTERS = {
+            all:       { keys: PLAYERS.map(p => p.key), hiddenByDefault: ['dyan_castillejo', 'lizette_cabrera'] },
+            prodigies: { keys: ['alex_eala', 'coco_gauff', 'maria_sharapova', 'iga_swiatek'], hiddenByDefault: [] },
+            filipinas: { keys: ['alex_eala', 'dyan_castillejo', 'lizette_cabrera'], hiddenByDefault: [] }
+        };
         const insightsData = {
             all: "Alex Eala demonstrates a methodical upward trajectory through her first 6 professional seasons, mirroring the developmental curves of veteran champions like Victoria Azarenka before her explosive top-15 breakthrough in Year 6.",
             prodigies: "Compared to meteoric teenage prodigies like Coco Gauff and Maria Sharapova who entered the top 5 by Year 3, Eala took a structured developmental path through the ITF circuit, before accelerating sharply into the top 15 by Year 6.",
             filipinas: "Eala has shattered historical benchmarks for Philippine tennis. While pioneers like Dyan Castillejo and compatriots like Lizette Cabrera anchored around the top 100-300 range, Eala's rapid ascent past No. 20 establishes an unprecedented new standard."
         };
+        const DIM_COLOR = 'rgba(100, 116, 139, 0.28)';
 
-        // Fetch and parse CSV file from data folder
+        let globalData = [];
+        let rankingChart = null;
+        let currentFilter = 'all';
+        let activeLabel = null;   // series currently hovered (chart OR legend); null = none
+
+        // ---------- Data ----------
         Papa.parse("data/rankings.csv", {
-            download: true,
-            header: true,
-            dynamicTyping: true,
-            complete: function(results) {
+            download: true, header: true, dynamicTyping: true, skipEmptyLines: true,
+            complete: (results) => {
                 globalData = results.data.filter(row => row.career_year);
-                populateTable(globalData);
+                buildTable(globalData);
                 initChart(globalData);
+                setFilterButtons(currentFilter);
             }
         });
 
-        function populateTable(data) {
-            const tableBody = document.getElementById('table-body');
-            tableBody.innerHTML = '';
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/40 transition-colors";
-                tr.innerHTML = `
-                    <td class="p-3 font-bold text-center bg-slate-950 sticky left-0 text-white border-r border-slate-800">Y${row.career_year}</td>
-                    <td class="p-3 font-bold text-emerald-400 bg-emerald-950/10">${row.alex_eala !== null && !isNaN(row.alex_eala) ? row.alex_eala : '—'}</td>
-                    <td class="p-3">${row.dyan_castillejo !== null && !isNaN(row.dyan_castillejo) ? row.dyan_castillejo : '—'}</td>
-                    <td class="p-3">${row.lizette_cabrera !== null && !isNaN(row.lizette_cabrera) ? row.lizette_cabrera : '—'}</td>
-                    <td class="p-3">${row.maria_sharapova !== null && !isNaN(row.maria_sharapova) ? row.maria_sharapova : '—'}</td>
-                    <td class="p-3">${row.serena_williams !== null && !isNaN(row.serena_williams) ? row.serena_williams : '—'}</td>
-                    <td class="p-3">${row.venus_williams !== null && !isNaN(row.venus_williams) ? row.venus_williams : '—'}</td>
-                    <td class="p-3">${row.coco_gauff !== null && !isNaN(row.coco_gauff) ? row.coco_gauff : '—'}</td>
-                    <td class="p-3">${row.iga_swiatek !== null && !isNaN(row.iga_swiatek) ? row.iga_swiatek : '—'}</td>
-                    <td class="p-3">${row.naomi_osaka !== null && !isNaN(row.naomi_osaka) ? row.naomi_osaka : '—'}</td>
-                    <td class="p-3">${row.victoria_azarenka !== null && !isNaN(row.victoria_azarenka) ? row.victoria_azarenka : '—'}</td>
-                `;
-                tableBody.appendChild(tr);
-            });
+        function fmt(v) { return (v !== null && v !== undefined && !isNaN(v)) ? v : '—'; }
+
+        function buildTable(data) {
+            document.getElementById('table-head').innerHTML =
+                `<th class="p-3 font-semibold text-center bg-slate-950 sticky left-0 z-20">Career Year</th>` +
+                PLAYERS.map(p => `<th class="p-3 font-${p.label === ALEX ? 'bold text-emerald-400' : 'semibold text-slate-300'} bg-slate-950">${p.label}</th>`).join('');
+            document.getElementById('table-body').innerHTML = data.map(row =>
+                `<tr class="hover:bg-slate-800/40 transition-colors">
+                    <td class="p-3 font-bold text-center bg-slate-950 sticky left-0 text-white border-r border-slate-800">Y${row.career_year}</td>` +
+                PLAYERS.map(p => p.label === ALEX
+                    ? `<td class="p-3 font-bold text-emerald-400 bg-emerald-950/10">${fmt(row[p.key])}</td>`
+                    : `<td class="p-3">${fmt(row[p.key])}</td>`).join('') +
+                `</tr>`).join('');
         }
 
+        // ---------- Highlight logic (single source of truth) ----------
+        // Alex is never dimmed. When a series is active, every other series is dimmed.
+        function seriesState(ds) {
+            if (ds.label === ALEX) return 'alex';
+            if (activeLabel === null) return 'normal';
+            return ds.label === activeLabel ? 'active' : 'dim';
+        }
+        // Scriptable options: line AND markers read the same state, so they can never get out of sync.
+        const pick = (map) => (ctx) => map[seriesState(ctx.dataset)];
+        const colorOpt = (ctx) => seriesState(ctx.dataset) === 'dim' ? DIM_COLOR : ctx.dataset.baseColor;
+
+        function makeDatasets(data, mode) {
+            const f = FILTERS[mode];
+            return PLAYERS.filter(p => f.keys.includes(p.key)).map(p => ({
+                label: p.label,
+                baseColor: p.color,
+                data: data.map(d => d[p.key]),
+                hidden: f.hiddenByDefault.includes(p.key),
+                tension: 0.2,
+                order: p.label === ALEX ? 0 : 1,          // lower order draws on top, Alex stays in front
+                borderColor: colorOpt,
+                backgroundColor: colorOpt,
+                pointBackgroundColor: colorOpt,
+                pointBorderColor: colorOpt,
+                borderWidth: pick({ alex: 6, active: 3.5, normal: 2, dim: 1 }),
+                pointRadius: pick({ alex: 4, active: 5, normal: 3, dim: 1.5 }),
+                pointHoverRadius: pick({ alex: 6, active: 7, normal: 5, dim: 3 }),
+                pointHitRadius: 10
+            }));
+        }
+
+        // Trim the x-axis to the last career year that has data among the visible series
+        function updateXRange() {
+            const visible = rankingChart.data.datasets.filter(ds => !ds.hidden);
+            let last = 0;
+            visible.forEach(ds => ds.data.forEach((v, i) => {
+                if (v !== null && v !== undefined && !isNaN(v) && i > last) last = i;
+            }));
+            rankingChart.options.scales.x.min = 0;
+            rankingChart.options.scales.x.max = last;
+        }
+
+        function setActive(label) {
+            if (label === activeLabel) return;
+            activeLabel = label;
+            if (rankingChart) rankingChart.update('none');
+            refreshLegendStyles();
+        }
+
+        // ---------- Chart ----------
         function initChart(data) {
-            const ctx = document.getElementById('rankingChart').getContext('2d');
-            rankingChart = new Chart(ctx, {
+            rankingChart = new Chart(document.getElementById('rankingChart').getContext('2d'), {
                 type: 'line',
-                data: {
-                    labels: data.map(d => `Y${d.career_year}`),
-                    datasets: getDatasets(data, currentFilter)
-                },
+                data: { labels: data.map(d => `Y${d.career_year}`), datasets: makeDatasets(data, currentFilter) },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    interaction: { mode: 'nearest', intersect: true },
+                    // Chart -> legend: hovering a point/line highlights that series; leaving the chart clears it
+                    onHover: (event, elements, chart) => {
+                        const el = elements[0];
+                        setActive(el ? chart.data.datasets[el.datasetIndex].label : null);
+                        if (event.native) event.native.target.style.cursor = el ? 'pointer' : 'default';
+                    },
                     scales: {
                         y: {
                             reverse: true,
@@ -224,163 +256,95 @@
                         },
                         x: {
                             grid: { color: 'rgba(51, 65, 85, 0.3)' },
-                            ticks: { 
-                                color: '#94a3b8',
-                                maxRotation: 0,
-                                minRotation: 0
-                            }
+                            ticks: { color: '#94a3b8', maxRotation: 0, minRotation: 0 }
                         }
                     },
                     plugins: {
                         legend: { display: false },
-                        tooltip: { mode: 'index', intersect: false }
+                        tooltip: {
+                            mode: 'nearest', intersect: true,
+                            callbacks: { label: (c) => `${c.dataset.label}: No. ${c.parsed.y}` }
+                        }
                     }
                 }
             });
+            updateXRange();
+            rankingChart.update('none');
+            document.getElementById('rankingChart').addEventListener('mouseleave', () => setActive(null));
             updateInsightsText(currentFilter);
             renderCustomLegend();
         }
 
-        function getDatasets(data, mode) {
-            if (mode === 'all') {
-                return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', pointBackgroundColor: '#10b981', pointBorderColor: '#10b981', borderWidth: 6, pointRadius: 3, tension: 0.2 },
-                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', pointBackgroundColor: '#38bdf8', pointBorderColor: '#38bdf8', borderWidth: 1.5, pointRadius: 2, hidden: true },
-                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', pointBackgroundColor: '#64748b', pointBorderColor: '#64748b', borderWidth: 1.5, pointRadius: 2, hidden: true },
-                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', pointBackgroundColor: '#a855f7', pointBorderColor: '#a855f7', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Serena Williams', data: data.map(d => d.serena_williams), borderColor: '#ec4899', pointBackgroundColor: '#ec4899', pointBorderColor: '#ec4899', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Venus Williams', data: data.map(d => d.venus_williams), borderColor: '#06b6d4', pointBackgroundColor: '#06b6d4', pointBorderColor: '#06b6d4', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', pointBackgroundColor: '#f43f5e', pointBorderColor: '#f43f5e', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', pointBackgroundColor: '#eab308', pointBorderColor: '#eab308', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Naomi Osaka', data: data.map(d => d.naomi_osaka), borderColor: '#f97316', pointBackgroundColor: '#f97316', pointBorderColor: '#f97316', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Victoria Azarenka', data: data.map(d => d.victoria_azarenka), borderColor: '#84cc16', pointBackgroundColor: '#84cc16', pointBorderColor: '#84cc16', borderWidth: 1.5, pointRadius: 3, tension: 0.2 }
-                ];
-            } else if (mode === 'prodigies') {
-                return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', pointBackgroundColor: '#10b981', pointBorderColor: '#10b981', borderWidth: 6, pointRadius: 3, tension: 0.2 },
-                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', pointBackgroundColor: '#f43f5e', pointBorderColor: '#f43f5e', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', pointBackgroundColor: '#a855f7', pointBorderColor: '#a855f7', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', pointBackgroundColor: '#eab308', pointBorderColor: '#eab308', borderWidth: 2, pointRadius: 3, tension: 0.2 }
-                ];
-            } else if (mode === 'filipinas') {
-                return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', pointBackgroundColor: '#10b981', pointBorderColor: '#10b981', borderWidth: 6, pointRadius: 3, tension: 0.2 },
-                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', pointBackgroundColor: '#38bdf8', pointBorderColor: '#38bdf8', borderWidth: 2, pointRadius: 3, tension: 0.2 },
-                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', pointBackgroundColor: '#64748b', pointBorderColor: '#64748b', borderWidth: 2, pointRadius: 3, tension: 0.2 }
-                ];
-            }
+        // ---------- Legend ----------
+        function legendItemClass(ds) {
+            const base = 'flex items-center justify-between cursor-pointer px-2 py-1.5 rounded transition-colors ';
+            if (ds.hidden) return base + 'opacity-40 bg-slate-900';
+            if (activeLabel === null) return base + 'hover:bg-slate-900';
+            if (ds.label === activeLabel) return base + 'bg-slate-800';
+            if (ds.label === ALEX) return base;
+            return base + 'opacity-40';
+        }
+
+        function refreshLegendStyles() {
+            document.querySelectorAll('#custom-legend [data-index]').forEach(item => {
+                item.className = legendItemClass(rankingChart.data.datasets[+item.dataset.index]);
+            });
+        }
+
+        function renderCustomLegend() {
+            const container = document.getElementById('custom-legend');
+            container.innerHTML = '';
+            rankingChart.data.datasets.forEach((ds, index) => {
+                const item = document.createElement('div');
+                item.dataset.index = index;
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2 truncate">
+                        <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color:${ds.baseColor}"></span>
+                        <span class="font-medium text-slate-300 truncate">${ds.label}</span>
+                    </div>`;
+                // Legend -> chart (hidden series don't trigger highlighting)
+                item.onmouseenter = () => { if (!ds.hidden) setActive(ds.label); };
+                item.onmouseleave = () => setActive(null);
+                // Click toggles visibility; Alex can't be hidden
+                item.onclick = () => {
+                    if (ds.label === ALEX) return;
+                    ds.hidden = !ds.hidden;
+                    if (ds.hidden && activeLabel === ds.label) activeLabel = null;
+                    updateXRange();
+                    rankingChart.update();
+                    refreshLegendStyles();
+                };
+                container.appendChild(item);
+            });
+            refreshLegendStyles();
+        }
+
+        // ---------- Filters ----------
+        function setFilterButtons(mode) {
+            ['all', 'prodigies', 'filipinas'].forEach(m => {
+                document.getElementById(`btn-${m}`).className = 'px-4 py-2 text-xs font-bold rounded-xl transition-all ' +
+                    (m === mode ? 'bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20'
+                                : 'bg-slate-800 text-slate-300 hover:bg-slate-700');
+            });
         }
 
         function updateInsightsText(mode) {
             document.getElementById('dynamic-insight').innerText = insightsData[mode];
         }
 
-        function renderCustomLegend() {
-            const legendContainer = document.getElementById('custom-legend');
-            legendContainer.innerHTML = '';
-            
-            rankingChart.data.datasets.forEach((dataset, index) => {
-                const item = document.createElement('div');
-                item.className = `flex items-center justify-between cursor-pointer px-2 py-1.5 rounded transition-colors ${dataset.hidden ? 'opacity-40 bg-slate-900' : 'hover:bg-slate-900'}`;
-                item.innerHTML = `
-                    <div class="flex items-center space-x-2 truncate">
-                        <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color: ${dataset.borderColor};"></span>
-                        <span class="font-medium text-slate-300 truncate">${dataset.label}</span>
-                    </div>
-                `;
-
-                // Hover Over Legend Item to Highlight Series and Markers (De-highlighting both lines & point markers)
-                item.onmouseenter = () => {
-                    rankingChart.data.datasets.forEach((ds, i) => {
-                        if (ds.label === 'Alex Eala') {
-                            ds.borderColor = '#10b981';
-                            ds.pointBackgroundColor = '#10b981';
-                            ds.pointBorderColor = '#10b981';
-                            ds.borderWidth = 6;
-                            ds.pointRadius = 4;
-                        } else if (i === index) {
-                            ds.borderColor = dataset.borderColor;
-                            ds.pointBackgroundColor = dataset.borderColor;
-                            ds.pointBorderColor = dataset.borderColor;
-                            ds.borderWidth = 3;
-                            ds.pointRadius = 4;
-                        } else {
-                            ds.borderColor = 'rgba(51, 65, 85, 0.15)'; // Faded line
-                            ds.pointBackgroundColor = 'rgba(51, 65, 85, 0.15)'; // Faded marker
-                            ds.pointBorderColor = 'rgba(51, 65, 85, 0.15)';
-                            ds.borderWidth = 1;
-                            ds.pointRadius = 1;
-                        }
-                    });
-                    rankingChart.update('none');
-                };
-
-                // Mouse Leave Resets Highlights & Markers
-                item.onmouseleave = () => {
-                    rankingChart.data.datasets.forEach((ds, i) => {
-                        if (ds.label === 'Alex Eala') {
-                            ds.borderColor = '#10b981';
-                            ds.pointBackgroundColor = '#10b981';
-                            ds.pointBorderColor = '#10b981';
-                            ds.borderWidth = 6;
-                            ds.pointRadius = 3;
-                        } else {
-                            if (currentFilter === 'all') {
-                                const originalColors = ['#10b981', '#38bdf8', '#64748b', '#a855f7', '#ec4899', '#06b6d4', '#f43f5e', '#eab308', '#f97316', '#84cc16'];
-                                ds.borderColor = originalColors[i] || '#cbd5e1';
-                                ds.pointBackgroundColor = originalColors[i] || '#cbd5e1';
-                                ds.pointBorderColor = originalColors[i] || '#cbd5e1';
-                                ds.borderWidth = (i === 0 ? 6 : (i <= 2 ? 1.5 : 2));
-                                ds.pointRadius = 3;
-                            } else if (currentFilter === 'prodigies') {
-                                const colors = ['#10b981', '#f43f5e', '#a855f7', '#eab308'];
-                                ds.borderColor = colors[i];
-                                ds.pointBackgroundColor = colors[i];
-                                ds.pointBorderColor = colors[i];
-                                ds.borderWidth = (i === 0 ? 6 : 2);
-                                ds.pointRadius = 3;
-                            } else if (currentFilter === 'filipinas') {
-                                const colors = ['#10b981', '#38bdf8', '#64748b'];
-                                ds.borderColor = colors[i];
-                                ds.pointBackgroundColor = colors[i];
-                                ds.pointBorderColor = colors[i];
-                                ds.borderWidth = (i === 0 ? 6 : 2);
-                                ds.pointRadius = 3;
-                            }
-                        }
-                    });
-                    rankingChart.update('none');
-                };
-
-                // Click to Toggle Visibility
-                item.onclick = () => {
-                    const meta = rankingChart.getDatasetMeta(index);
-                    meta.hidden = meta.hidden === null ? !rankingChart.data.datasets[index].hidden : null;
-                    rankingChart.data.datasets[index].hidden = !rankingChart.data.datasets[index].hidden;
-                    rankingChart.update();
-                    renderCustomLegend();
-                };
-
-                legendContainer.appendChild(item);
-            });
-        }
-
         function setFilter(mode) {
+            if (!rankingChart) return;
             currentFilter = mode;
-            ['all', 'prodigies', 'filipinas'].forEach(m => {
-                const btn = document.getElementById(`btn-${m}`);
-                if (m === mode) {
-                    btn.className = "px-4 py-2 text-xs font-bold rounded-xl transition-all bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20";
-                } else {
-                    btn.className = "px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
-                }
-            });
-
-            rankingChart.data.datasets = getDatasets(globalData, mode);
+            activeLabel = null;
+            setFilterButtons(mode);
+            rankingChart.data.datasets = makeDatasets(globalData, mode);
+            updateXRange();
             rankingChart.update();
             updateInsightsText(mode);
             renderCustomLegend();
         }
+
+        setFilterButtons(currentFilter);
     </script>
 </body>
 </html>
