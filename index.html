@@ -275,18 +275,22 @@
                     plugins: {
                         legend: { display: false },
                         tooltip: {
-                            mode: 'nearest', intersect: true,
+                            // Same-year points of every visible series are candidates; the filter keeps only
+                            // the hovered series + Alex, so BOTH rows are real tooltip rows with a colour square.
+                            mode: 'index', intersect: true,
+                            filter: (item) => item.dataset.label === ALEX || item.dataset.label === activeLabel,
+                            itemSort: (a, b) => (a.dataset.label === ALEX) - (b.dataset.label === ALEX),
                             callbacks: {
-                                label: (c) => `${c.dataset.label}: No. ${c.parsed.y}`,
-                                // Always show Alex's rank for the same career year, for comparison
-                                afterBody: (items) => {
-                                    const item = items[0];
-                                    if (!item || item.dataset.label === ALEX) return '';
-                                    const alex = item.chart.data.datasets.find(d => d.label === ALEX);
-                                    const v = alex ? alex.data[item.dataIndex] : null;
+                                label: (c) => {
+                                    const line = `${c.dataset.label}: No. ${c.parsed.y}`;
+                                    if (c.dataset.label === ALEX) return line;
+                                    // Alex has no point for this year, so add her row as a second line
+                                    const alex = c.chart.data.datasets.find(d => d.label === ALEX);
+                                    const v = alex ? alex.data[c.dataIndex] : null;
                                     const has = v !== null && v !== undefined && !isNaN(v);
-                                    return `${ALEX}: ${has ? 'No. ' + v : 'no data yet'}`;
-                                }
+                                    return has ? line : [line, `${ALEX}: no data yet`];
+                                },
+                                labelColor: (c) => ({ borderColor: c.dataset.baseColor, backgroundColor: c.dataset.baseColor })
                             }
                         }
                     }
