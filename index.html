@@ -18,35 +18,35 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">Alex Eala's WTA Rank Progression vs Other Tennis Stars</h1>
+    <!-- Header / Navbar with Emerald Green Background Title Pane (1.5x larger font) -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="bg-emerald-500 text-slate-950 font-extrabold px-4 py-2 rounded-xl text-lg sm:text-xl tracking-tight shadow-lg shadow-emerald-500/20">
+                Alex Eala's WTA Rank Progression vs Other Tennis Stars
             </div>
-            <div class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700/60">
+            <div class="text-xs sm:text-sm font-medium text-slate-300 bg-slate-800/90 px-3 py-1.5 rounded-full border border-slate-700/60">
                 Updated through 2026 Season
             </div>
         </div>
     </header>
 
     <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full space-y-6">
 
         <!-- Hero Section: Side Image + Top Metric Cards -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
-            <!-- Left Side: Alex Eala Image Card (Full vertical fill with overlapping text) -->
-            <div class="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-2 relative overflow-hidden shadow-xl flex items-center justify-center min-h-[280px]">
+            <!-- Left Side: Alex Eala Image Card (Full Head to Lower Body, Overlapping Text Increased by 20%) -->
+            <div class="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-2 relative overflow-hidden shadow-xl flex items-center justify-center min-h-[300px]">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 z-10"></div>
-                <img src="assets/eala.png" alt="Alex Eala" class="absolute inset-0 w-full h-full object-cover object-center p-1 rounded-2xl z-0">
+                <img src="assets/eala.png" alt="Alex Eala" class="absolute inset-0 w-full h-full object-contain object-top p-2 rounded-2xl z-0">
                 <div class="absolute bottom-4 left-0 right-0 z-20 text-center">
-                    <h3 class="text-2xl font-extrabold text-white tracking-wide drop-shadow-md">Alex Eala</h3>
+                    <h3 class="text-3xl font-extrabold text-white tracking-wide drop-shadow-lg">Alex Eala</h3>
                 </div>
             </div>
 
-            <!-- Right Side: 4 KPI Cards Grid with tighter vertical gap -->
-            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-3 content-between">
+            <!-- Right Side: 4 KPI Cards Grid with Tighter Vertical Gap (gap-2) -->
+            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-2 content-between">
                 <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Current Ranking</p>
@@ -79,8 +79,9 @@
         <section class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-800">
                 <div>
-                    <h2 class="text-lg font-bold text-white">Year-End WTA Ranking Progression (Inverted Scale)</h2>
-                    <p class="text-sm text-slate-400">Lower position number indicates a higher, elite ranking.</p>
+                    <h2 class="text-lg font-bold text-white">How does Alex's WTA Rank Progression compare to Other Tennis Stars</h2>
+                    <p class="text-sm font-medium text-slate-300 mt-0.5">Year-End WTA Ranking Progression (Inverted Scale)</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Lower position number indicates a higher, elite ranking.</p>
                 </div>
                 <!-- Reordered & Renamed Filters -->
                 <div class="flex flex-wrap gap-2">
@@ -98,9 +99,9 @@
                 </div>
                 <!-- Right-Side Panel: Custom Legend & Dynamic Insights -->
                 <div class="lg:col-span-4 flex flex-col space-y-4">
-                    <!-- Legend Box -->
+                    <!-- Legend Box with Hover Effects -->
                     <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4">
-                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends (Hover to Highlight)</p>
                         <div id="custom-legend" class="grid grid-cols-1 gap-1.5 text-xs">
                             <!-- Populated dynamically via JS -->
                         </div>
@@ -156,11 +157,11 @@
         <p>Built for GitHub Pages Hosting • Data Source: CSV & Historical Archives (2026)</p>
     </footer>
 
-    <!-- Script to Fetch CSV and Render Dashboard -->
+    <!-- Script to Fetch CSV and Render Dashboard with Interactive Hover Effects -->
     <script>
         let globalData = [];
         let rankingChart = null;
-        let currentFilter = 'all'; // Default to Compared with Other Stars
+        let currentFilter = 'all';
 
         const insightsData = {
             all: "Alex Eala demonstrates a methodical upward trajectory through her first 6 professional seasons, mirroring the developmental curves of veteran champions like Victoria Azarenka before her explosive top-15 breakthrough in Year 6.",
@@ -187,7 +188,7 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-800/40 transition-colors";
                 tr.innerHTML = `
-                    <td class="p-3 font-bold text-center bg-slate-950 sticky left-0 text-white border-r border-slate-800">Yr ${row.career_year}</td>
+                    <td class="p-3 font-bold text-center bg-slate-950 sticky left-0 text-white border-r border-slate-800">Y${row.career_year}</td>
                     <td class="p-3 font-bold text-emerald-400 bg-emerald-950/10">${row.alex_eala !== null && !isNaN(row.alex_eala) ? row.alex_eala : '—'}</td>
                     <td class="p-3">${row.dyan_castillejo !== null && !isNaN(row.dyan_castillejo) ? row.dyan_castillejo : '—'}</td>
                     <td class="p-3">${row.lizette_cabrera !== null && !isNaN(row.lizette_cabrera) ? row.lizette_cabrera : '—'}</td>
@@ -208,7 +209,7 @@
             rankingChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: data.map(d => `Year ${d.career_year}`),
+                    labels: data.map(d => `Y${d.career_year}`),
                     datasets: getDatasets(data, currentFilter)
                 },
                 options: {
@@ -223,7 +224,11 @@
                         },
                         x: {
                             grid: { color: 'rgba(51, 65, 85, 0.3)' },
-                            ticks: { color: '#94a3b8' }
+                            ticks: { 
+                                color: '#94a3b8',
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
                         }
                     },
                     plugins: {
@@ -239,7 +244,7 @@
         function getDatasets(data, mode) {
             if (mode === 'all') {
                 return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', borderWidth: 4, tension: 0.2 },
+                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', borderWidth: 6, tension: 0.2 },
                     { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', borderWidth: 1.5, hidden: true },
                     { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', borderWidth: 1.5, hidden: true },
                     { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', borderWidth: 2, tension: 0.2 },
@@ -252,16 +257,16 @@
                 ];
             } else if (mode === 'prodigies') {
                 return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
-                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', backgroundColor: '#f43f5e', borderWidth: 2, tension: 0.2 },
-                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', backgroundColor: '#a855f7', borderWidth: 2, tension: 0.2 },
-                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', backgroundColor: '#eab308', borderWidth: 2, tension: 0.2 }
+                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', borderWidth: 6, tension: 0.2 },
+                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', borderWidth: 2, tension: 0.2 },
+                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', borderWidth: 2, tension: 0.2 },
+                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', borderWidth: 2, tension: 0.2 }
                 ];
             } else if (mode === 'filipinas') {
                 return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
-                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', backgroundColor: '#38bdf8', borderWidth: 2, tension: 0.2 },
-                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', backgroundColor: '#64748b', borderWidth: 2, tension: 0.2 }
+                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', borderWidth: 6, tension: 0.2 },
+                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', borderWidth: 2, tension: 0.2 },
+                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', borderWidth: 2, tension: 0.2 }
                 ];
             }
         }
@@ -273,15 +278,57 @@
         function renderCustomLegend() {
             const legendContainer = document.getElementById('custom-legend');
             legendContainer.innerHTML = '';
+            
             rankingChart.data.datasets.forEach((dataset, index) => {
                 const item = document.createElement('div');
-                item.className = `flex items-center justify-between cursor-pointer px-2 py-1 rounded transition-colors ${dataset.hidden ? 'opacity-40 bg-slate-900' : 'hover:bg-slate-900'}`;
+                item.className = `flex items-center justify-between cursor-pointer px-2 py-1.5 rounded transition-colors ${dataset.hidden ? 'opacity-40 bg-slate-900' : 'hover:bg-slate-900'}`;
                 item.innerHTML = `
                     <div class="flex items-center space-x-2 truncate">
                         <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color: ${dataset.borderColor};"></span>
                         <span class="font-medium text-slate-300 truncate">${dataset.label}</span>
                     </div>
                 `;
+
+                item.onmouseenter = () => {
+                    rankingChart.data.datasets.forEach((ds, i) => {
+                        if (ds.label === 'Alex Eala') {
+                            ds.borderColor = '#10b981';
+                            ds.borderWidth = 6;
+                        } else if (i === index) {
+                            ds.borderColor = dataset.borderColor;
+                            ds.borderWidth = 3;
+                        } else {
+                            ds.borderColor = 'rgba(51, 65, 85, 0.2)';
+                            ds.borderWidth = 1;
+                        }
+                    });
+                    rankingChart.update('none');
+                };
+
+                item.onmouseleave = () => {
+                    rankingChart.data.datasets.forEach((ds, i) => {
+                        if (ds.label === 'Alex Eala') {
+                            ds.borderColor = '#10b981';
+                            ds.borderWidth = 6;
+                        } else {
+                            if (currentFilter === 'all') {
+                                const originalColors = ['#10b981', '#38bdf8', '#64748b', '#a855f7', '#ec4899', '#06b6d4', '#f43f5e', '#eab308', '#f97316', '#84cc16'];
+                                ds.borderColor = originalColors[i] || '#cbd5e1';
+                                ds.borderWidth = (i === 0 ? 6 : (i <= 2 ? 1.5 : 2));
+                            } else if (currentFilter === 'prodigies') {
+                                const colors = ['#10b981', '#f43f5e', '#a855f7', '#eab308'];
+                                ds.borderColor = colors[i];
+                                ds.borderWidth = (i === 0 ? 6 : 2);
+                            } else if (currentFilter === 'filipinas') {
+                                const colors = ['#10b981', '#38bdf8', '#64748b'];
+                                ds.borderColor = colors[i];
+                                ds.borderWidth = (i === 0 ? 6 : 2);
+                            }
+                        }
+                    });
+                    rankingChart.update('none');
+                };
+
                 item.onclick = () => {
                     const meta = rankingChart.getDatasetMeta(index);
                     meta.hidden = meta.hidden === null ? !rankingChart.data.datasets[index].hidden : null;
@@ -289,6 +336,7 @@
                     rankingChart.update();
                     renderCustomLegend();
                 };
+
                 legendContainer.appendChild(item);
             });
         }
