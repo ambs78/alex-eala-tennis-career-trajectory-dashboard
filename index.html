@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Eala & WTA Legends Career Trajectory Dashboard</title>
+    <title>Alex Eala's WTA Rank Progression vs Other Tennis Stars</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chart.js CDN -->
@@ -22,10 +22,7 @@
     <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="bg-emerald-500 text-slate-950 font-extrabold px-3 py-1.5 rounded-lg text-sm tracking-wide shadow-lg shadow-emerald-500/20">
-                    WTA ANALYTICS
-                </div>
-                <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">Alex Eala Career & Legends Benchmark</h1>
+                <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">Alex Eala's WTA Rank Progression vs Other Tennis Stars</h1>
             </div>
             <div class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700/60">
                 Updated through 2026 Season
@@ -34,77 +31,88 @@
     </header>
 
     <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
 
         <!-- Hero Section: Side Image + Top Metric Cards -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
-            <!-- Left Side: Alex Eala Image Card (Loaded from local assets folder) -->
-            <div class="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center relative overflow-hidden shadow-xl">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 z-10"></div>
-                <img src="assets/eala.png" alt="Alex Eala" class="relative z-0 h-64 sm:h-72 object-contain drop-shadow-2xl">
-                <div class="relative z-20 text-center mt-2">
-                    <span class="text-xs font-bold tracking-widest text-emerald-400 uppercase">Featured Athlete</span>
-                    <h3 class="text-lg font-extrabold text-white">Alex Eala</h3>
+            <!-- Left Side: Alex Eala Image Card (Full vertical fill with overlapping text) -->
+            <div class="lg:col-span-3 bg-slate-900/80 border border-slate-800 rounded-2xl p-2 relative overflow-hidden shadow-xl flex items-center justify-center min-h-[280px]">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 z-10"></div>
+                <img src="assets/eala.png" alt="Alex Eala" class="absolute inset-0 w-full h-full object-cover object-center p-1 rounded-2xl z-0">
+                <div class="absolute bottom-4 left-0 right-0 z-20 text-center">
+                    <h3 class="text-2xl font-extrabold text-white tracking-wide drop-shadow-md">Alex Eala</h3>
                 </div>
             </div>
 
-            <!-- Right Side: 4 KPI Cards Grid -->
-            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-4 content-between">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <!-- Right Side: 4 KPI Cards Grid with tighter vertical gap -->
+            <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-3 content-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Current Ranking</p>
                     <h3 class="text-3xl font-extrabold text-white mt-1">No. 15</h3>
-                    <p class="text-xs text-slate-400 mt-2">Career-high achieved Nov 2026</p>
+                    <p class="text-xs text-slate-400 mt-1">Career-high achieved Nov 2026</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-blue-400 uppercase tracking-wider">WTA Tour Titles</p>
                     <h3 class="text-2xl font-extrabold text-white mt-1">1 Single / 2 WTA 125</h3>
-                    <p class="text-xs text-slate-400 mt-2">Washington DC (500) & Birmingham (125)</p>
+                    <p class="text-xs text-slate-400 mt-1">Washington DC (500) & Birmingham (125)</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Grand Slam Peak</p>
                     <h3 class="text-3xl font-extrabold text-white mt-1">4th Round</h3>
-                    <p class="text-xs text-slate-400 mt-2">Wimbledon 2026 Breakthrough</p>
+                    <p class="text-xs text-slate-400 mt-1">Wimbledon 2026 Breakthrough</p>
                 </div>
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-xl relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-amber-500/10 rounded-full blur-xl"></div>
                     <p class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Career Prize Money</p>
                     <h3 class="text-3xl font-extrabold text-white mt-1">$3.33M+</h3>
-                    <p class="text-xs text-slate-400 mt-2">Historic milestone for PH Tennis</p>
+                    <p class="text-xs text-slate-400 mt-1">Historic milestone for PH Tennis</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- Interactive Chart & Right Legend Section -->
+        <!-- Interactive Chart, Legend & Dynamic Insights Section -->
         <section class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-slate-800">
                 <div>
                     <h2 class="text-lg font-bold text-white">Year-End WTA Ranking Progression (Inverted Scale)</h2>
                     <p class="text-sm text-slate-400">Lower position number indicates a higher, elite ranking.</p>
                 </div>
-                <!-- Interactive Toggle Filters -->
+                <!-- Reordered & Renamed Filters -->
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="setFilter('eala')" id="btn-eala" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">Alex Eala Focus</button>
-                    <button onclick="setFilter('prodigies')" id="btn-prodigies" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Eala vs. Prodigies</button>
-                    <button onclick="setFilter('all')" id="btn-all" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Compare All 10 Players</button>
+                    <button onclick="setFilter('all')" id="btn-all" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">Compared with Other Stars</button>
+                    <button onclick="setFilter('prodigies')" id="btn-prodigies" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Alex vs Prodigies</button>
+                    <button onclick="setFilter('filipinas')" id="btn-filipinas" class="px-4 py-2 text-xs font-bold rounded-xl transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">Alex vs Other Filipinas</button>
                 </div>
             </div>
 
-            <!-- Grid containing Chart on left, and Custom Legend on right -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <!-- Grid containing Chart on left, Custom Legend & Dynamic Insights on right -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 <!-- Chart Area -->
-                <div class="lg:col-span-9 relative w-full h-[400px]">
+                <div class="lg:col-span-8 relative w-full h-[420px]">
                     <canvas id="rankingChart"></canvas>
                 </div>
-                <!-- Right-Side Custom Legend Panel -->
-                <div class="lg:col-span-3 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 flex flex-col space-y-3 justify-center">
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1 border-b border-slate-800 pb-2">Player Legends</p>
-                    <div id="custom-legend" class="space-y-2 text-xs">
-                        <!-- Populated dynamically via JS -->
+                <!-- Right-Side Panel: Custom Legend & Dynamic Insights -->
+                <div class="lg:col-span-4 flex flex-col space-y-4">
+                    <!-- Legend Box -->
+                    <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 border-b border-slate-800 pb-2">Player Legends</p>
+                        <div id="custom-legend" class="grid grid-cols-1 gap-1.5 text-xs">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                    <!-- Dynamic View-Specific Insights Box -->
+                    <div class="bg-emerald-950/20 border border-emerald-500/30 rounded-2xl p-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center gap-1.5">
+                            <span>💡</span> Progression Insights
+                        </p>
+                        <p id="dynamic-insight" class="text-xs text-slate-300 leading-relaxed">
+                            Loading insights...
+                        </p>
                     </div>
                 </div>
             </div>
@@ -152,7 +160,13 @@
     <script>
         let globalData = [];
         let rankingChart = null;
-        let currentFilter = 'eala';
+        let currentFilter = 'all'; // Default to Compared with Other Stars
+
+        const insightsData = {
+            all: "Alex Eala demonstrates a methodical upward trajectory through her first 6 professional seasons, mirroring the developmental curves of veteran champions like Victoria Azarenka before her explosive top-15 breakthrough in Year 6.",
+            prodigies: "Compared to meteoric teenage prodigies like Coco Gauff and Maria Sharapova who entered the top 5 by Year 3, Eala took a structured developmental path through the ITF circuit, before accelerating sharply into the top 15 by Year 6.",
+            filipinas: "Eala has shattered historical benchmarks for Philippine tennis. While pioneers like Dyan Castillejo and compatriots like Lizette Cabrera anchored around the top 100-300 range, Eala's rapid ascent past No. 20 establishes an unprecedented new standard."
+        };
 
         // Fetch and parse CSV file from data folder
         Papa.parse("data/rankings.csv", {
@@ -160,7 +174,7 @@
             header: true,
             dynamicTyping: true,
             complete: function(results) {
-                globalData = results.data.filter(row => row.career_year); // Clean empty rows
+                globalData = results.data.filter(row => row.career_year);
                 populateTable(globalData);
                 initChart(globalData);
             }
@@ -218,27 +232,16 @@
                     }
                 }
             });
+            updateInsightsText(currentFilter);
             renderCustomLegend();
         }
 
         function getDatasets(data, mode) {
-            if (mode === 'eala') {
-                return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
-                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', backgroundColor: '#38bdf8', borderWidth: 2, borderDash: [4, 4], tension: 0.2 }
-                ];
-            } else if (mode === 'prodigies') {
-                return [
-                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
-                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', backgroundColor: '#f43f5e', borderWidth: 2, tension: 0.2 },
-                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', backgroundColor: '#a855f7', borderWidth: 2, tension: 0.2 },
-                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', backgroundColor: '#eab308', borderWidth: 2, tension: 0.2 }
-                ];
-            } else {
+            if (mode === 'all') {
                 return [
                     { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', borderWidth: 4, tension: 0.2 },
-                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', borderWidth: 1.5 },
-                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', borderWidth: 1.5 },
+                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', borderWidth: 1.5, hidden: true },
+                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', borderWidth: 1.5, hidden: true },
                     { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', borderWidth: 2, tension: 0.2 },
                     { label: 'Serena Williams', data: data.map(d => d.serena_williams), borderColor: '#ec4899', borderWidth: 2, tension: 0.2 },
                     { label: 'Venus Williams', data: data.map(d => d.venus_williams), borderColor: '#06b6d4', borderWidth: 2, tension: 0.2 },
@@ -247,7 +250,24 @@
                     { label: 'Naomi Osaka', data: data.map(d => d.naomi_osaka), borderColor: '#f97316', borderWidth: 2, tension: 0.2 },
                     { label: 'Victoria Azarenka', data: data.map(d => d.victoria_azarenka), borderColor: '#84cc16', borderWidth: 1.5, tension: 0.2 }
                 ];
+            } else if (mode === 'prodigies') {
+                return [
+                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
+                    { label: 'Coco Gauff', data: data.map(d => d.coco_gauff), borderColor: '#f43f5e', backgroundColor: '#f43f5e', borderWidth: 2, tension: 0.2 },
+                    { label: 'Maria Sharapova', data: data.map(d => d.maria_sharapova), borderColor: '#a855f7', backgroundColor: '#a855f7', borderWidth: 2, tension: 0.2 },
+                    { label: 'Iga Świątek', data: data.map(d => d.iga_swiatek), borderColor: '#eab308', backgroundColor: '#eab308', borderWidth: 2, tension: 0.2 }
+                ];
+            } else if (mode === 'filipinas') {
+                return [
+                    { label: 'Alex Eala', data: data.map(d => d.alex_eala), borderColor: '#10b981', backgroundColor: '#10b981', borderWidth: 4, tension: 0.2 },
+                    { label: 'Dyan Castillejo', data: data.map(d => d.dyan_castillejo), borderColor: '#38bdf8', backgroundColor: '#38bdf8', borderWidth: 2, tension: 0.2 },
+                    { label: 'Lizette Cabrera', data: data.map(d => d.lizette_cabrera), borderColor: '#64748b', backgroundColor: '#64748b', borderWidth: 2, tension: 0.2 }
+                ];
             }
+        }
+
+        function updateInsightsText(mode) {
+            document.getElementById('dynamic-insight').innerText = insightsData[mode];
         }
 
         function renderCustomLegend() {
@@ -275,7 +295,7 @@
 
         function setFilter(mode) {
             currentFilter = mode;
-            ['eala', 'prodigies', 'all'].forEach(m => {
+            ['all', 'prodigies', 'filipinas'].forEach(m => {
                 const btn = document.getElementById(`btn-${m}`);
                 if (m === mode) {
                     btn.className = "px-4 py-2 text-xs font-bold rounded-xl transition-all bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20";
@@ -286,6 +306,7 @@
 
             rankingChart.data.datasets = getDatasets(globalData, mode);
             rankingChart.update();
+            updateInsightsText(mode);
             renderCustomLegend();
         }
     </script>
