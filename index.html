@@ -341,6 +341,7 @@
                 const ds = rankingChart.data.datasets[+item.dataset.index];
                 item.className = legendItemClass(ds);
                 const tick = item.querySelector('[data-tick]');
+                if (!tick) return;   // Alex has no lock option
                 const on = pinnedLabel === ds.label;
                 tick.style.backgroundColor = on ? ds.baseColor : 'transparent';
                 tick.style.borderColor = on ? ds.baseColor : '';
@@ -357,15 +358,16 @@
                 item.dataset.index = index;
                 item.innerHTML = `
                     <div class="flex items-center space-x-2 truncate">
-                        <span data-tick role="checkbox" aria-checked="false" aria-label="Lock highlight on ${ds.label}" title="Lock highlight"
-                              class="w-4 h-4 rounded-full border border-slate-500 hover:border-slate-300 flex-shrink-0 flex items-center justify-center transition-colors"></span>
+                        ${ds.label === ALEX ? '<span class="w-4 h-4 flex-shrink-0"></span>' : `<span data-tick role="checkbox" aria-checked="false" aria-label="Lock highlight on ${ds.label}" title="Lock highlight"
+                              class="w-4 h-4 rounded-full border border-slate-500 hover:border-slate-300 flex-shrink-0 flex items-center justify-center transition-colors"></span>`}
                         <span class="w-3 h-3 rounded-full flex-shrink-0" style="background-color:${ds.baseColor}"></span>
                         <span class="font-medium text-slate-300 truncate">${ds.label}</span>
                     </div>`;
                 // Legend -> chart (hidden series don't trigger highlighting)
                 item.onmouseenter = () => { if (!ds.hidden) setActive(ds.label); };
                 item.onmouseleave = () => setActive(null);
-                item.querySelector('[data-tick]').onclick = (e) => { e.stopPropagation(); togglePin(ds); };
+                const tickEl = item.querySelector('[data-tick]');
+                if (tickEl) tickEl.onclick = (e) => { e.stopPropagation(); togglePin(ds); };
                 // Click toggles visibility; Alex can't be hidden
                 item.onclick = () => {
                     if (ds.label === ALEX) return;
